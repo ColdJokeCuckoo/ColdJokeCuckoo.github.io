@@ -1,0 +1,238 @@
+:root {
+  --main-color: #c01221fc;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, sans-serif;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+main {
+  margin-top: 8rem;
+}
+article {
+  padding: 5rem 40rem;
+  letter-spacing: 0.05rem;
+
+  h2 {
+    font-size: 4rem;
+  }
+  a {
+    color: var(--main-color);
+    font-size: 2.6rem;
+  }
+  p {
+    margin: 1.5rem 0;
+    font-size: 2.2rem;
+  }
+}
+.uppercase {
+  text-transform: uppercase;
+  color: var(--main-color);
+}
+#Lunar {
+  font-size: 3.5rem;
+  display: inline-block;
+  border: 0.1rem solid yellow;
+  padding: 1rem 3rem;
+  background-color: var(--main-color);
+  color: white;
+  border-radius: 1.5rem;
+}
+
+/* navbar style */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 8rem;
+  z-index: 1;
+  background-color: white;
+  text-align: center;
+  font-size: 2.2rem;
+  padding: 2rem 0;
+  box-shadow: 0 1rem 2rem rgb(0 0 0 / 0.2);
+
+  li {
+    display: inline-block;
+    margin: 0 4rem;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    .navbar-active {
+      color: var(--main-color);
+    }
+  }
+}
+
+/* banner section style */
+#banner {
+  background-color: var(--main-color);
+  width: 100%;
+  height: 50rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  color: white;
+
+  h1 {
+    font-size: 5.5rem;
+  }
+
+  #avatar {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  #btn {
+    width: 40rem;
+    height: 5rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    border: 0.1rem solid white;
+    background-color: white;
+    color: var(--main-color);
+  }
+}
+
+/* Share section style */
+#share {
+  h3 {
+    margin-top: 1.5rem;
+    font-size: 3rem;
+  }
+  .nyangoStar {
+    width: 75rem;
+    height: 50rem;
+    margin-top: 2rem;
+  }
+}
+
+/* about me section style */
+#aboutMe {
+  ul {
+    margin-top: 3rem;
+  }
+  li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  #heartBeat {
+    width: 20rem;
+    height: 10rem;
+    background-image: url(../images/heart_beat.png);
+    background-size: cover;
+  }
+  .love {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .icon {
+    width: 5rem;
+    height: 5rem;
+  }
+  .bear {
+    background-image: url("../images/bear.png");
+    background-size: cover;
+  }
+  .skills {
+    border: 0.1rem solid yellow;
+    padding: 1rem 3rem;
+    background-color: rgb(234, 112, 112);
+
+    color: white;
+    border-radius: 1.5rem;
+
+    &:hover {
+      background-color: var(--main-color);
+    }
+  }
+}
+
+/* footer section style */
+footer {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  color: white;
+  font-size: 1.6rem;
+}
+
+/* Lunar mode */
+html.lunar-mode body {
+  filter: hue-rotate(12deg) saturate(1.15);
+}
+
+.lunar-egg {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  background: #111;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  font: 600 14px/1.2 system-ui;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.lunar-egg[data-show="true"] {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-6px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lunar-egg {
+    transition: none;
+  }
+}
+.chip--lunar {
+  position: relative;
+}
+.chip--lunar::after {
+  content: "Anchor synced · 0827";
+  position: absolute;
+  left: 50%;
+  top: -50%;
+  transform: translateX(-50%);
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.5rem;
+  background: #111;
+  color: #fff;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.chip--lunar:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(2px);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
