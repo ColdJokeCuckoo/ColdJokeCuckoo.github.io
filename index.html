@@ -1,9 +1,247 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranul</title>
+    <link rel="stylesheet" href="./resources/css/index.css" />
+  </head>
+  <body>
+    <!-- navbar section -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="#banner" class="navbar-active">Banner</a></li>
+        <li><a href="#share">Share</a></li>
+        <li><a href="#aboutMe">About Me</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-<body>
-  <h1>Ranul</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
-</body>
+    <main>
+      <!-- Ranul banner section -->
+      <section id="banner">
+        <h1 lang="de">Hallo! Ich bin Ranul.</h1>
+        <p>Today I'm going to show you something awesome.</p>
+        <img id="avatar" src="./resources/images/avatar.webp" alt="apple cat" />
+        <button id="btn">
+          Subscribe to me or Nyango'll knocking you crazily
+        </button>
+      </section>
 
+      <!-- Nyango Star section -->
+      <section id="share">
+        <article>
+          <h2>Share</h2>
+          <h3>Cat? Apple? Drummer?</h3>
+          <div>
+            <p>
+              Have you ever heard of
+              <a href="https://en.wikipedia.org/wiki/Nyango_Star">Nyango Star</a
+              >?
+            </p>
+            <p>
+              He's a cat who died in an apple orchard and reincarnated as an
+              apple <em>(yes, a monster hybrid of an apple)</em>, and he must
+              become a famous musician to reclaim his true form. Nyango Star
+              also happens to be an insanely good drummer who shreds heavy metal
+              and death metal.
+            </p>
+            <p>Nyango Star now lives in Kuroishi, Aomori, Japan.</p>
+            <p>Look! This cute cat is playing the drum kit — SOOOO COOL.</p>
+          </div>
+          <figure>
+            <img
+              src="./resources/images/Nyango_Star.jpg"
+              alt="A red cat mascot playing a drum kit on stage"
+              class="nyangoStar"
+            />
+            <figcaption>
+              Live Performance · Cat Drummer · Absolute Legend
+            </figcaption>
+          </figure>
+          <p>Oh, it's lunchtime—let's get closer.</p>
+          <p>
+            Mr. Nyango Star, can we take a photo with you? Yeah, behind the
+            apple tree-nice.
+          </p>
+          <figure>
+            <img
+              src="./resources/images/orchard.webp"
+              alt="A red cat mascot standing behind an apple tree"
+              class="nyangoStar"
+            />
+            <figcaption>Orchard · Cat Drummer ·Lunchtime</figcaption>
+          </figure>
+          <p>
+            Okay, Nyango Star is busy getting ready for his next show, so he has
+            to leave.
+          </p>
+          <p>
+            What a cool cat, isn't he? Since you're here, here's a tiny bonus
+            clip for you.
+          </p>
+          <p>This is his breakout moment.</p>
+          <p class="uppercase">
+            Sit back, turn up the volume, and witness the rise.
+          </p>
+          <figure>
+            <video
+              src="./resources/video/Anpanman.mp4"
+              controls
+              width="750"
+              height="400"
+            ></video>
+            <figcaption>When you're overqualified for the job</figcaption>
+          </figure>
+        </article>
+      </section>
+
+      <!-- aboute me section -->
+      <section id="aboutMe">
+        <article>
+          <h2>About me</h2>
+          <ul>
+            <li>
+              <div class="uppercase love">
+                The love of my life
+                <div id="heartBeat"></div>
+                <span
+                  id="Lunar"
+                  data-lunar-badge
+                  class="chip chip--lunar"
+                  role="button"
+                  aria-label="My love: Lunar"
+                  >Lunar<span class="sr-only">Always.</span></span
+                >
+              </div>
+            </li>
+            <li>
+              <div class="icon bear"></div>
+              <div class="skills">Front-end Developer (Junior)</div>
+            </li>
+            <li>
+              <div class="icon bear"></div>
+              <div class="skills">Writing</div>
+            </li>
+            <li>
+              <div class="icon bear"></div>
+              <div class="skills">Drummer (Beginner)</div>
+            </li>
+            <li>
+              <div class="icon bear"></div>
+              <div class="skills">Jigsaw Fan</div>
+            </li>
+            <li>
+              <div class="icon bear"></div>
+              <div class="skills">Full-stack Engineer (bin noch am Lernen)</div>
+            </li>
+            <li>
+              <div class="icon bear"></div>
+              <div class="skills">Piano (ein wenig)</div>
+            </li>
+            <li>
+              <div class="icon bear"></div>
+              <div class="skills">Painting (noch nicht gestartet)</div>
+            </li>
+            <li>
+              <div class="icon bear"></div>
+              <div class="skills">Violin (noch nicht gestartet)</div>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+    <!-- footer -->
+    <footer id="contact">Multilingual demo page by Ranul</footer>
+
+    <!-- Toast for Lunar's message -->
+    <div
+      id="lunar-egg"
+      class="lunar-egg"
+      aria-live="polite"
+      aria-hidden="true"
+    ></div>
+  </body>
+  <!-- js -->
+  <script>
+    ;(() => {
+      // Konami sequence
+      const seq = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+      ]
+      let i = 0
+      const egg = document.getElementById("lunar-egg")
+
+      function toast(text) {
+        if (!egg) return
+        egg.textContent = text
+        egg.setAttribute("data-show", "true")
+        egg.setAttribute("aria-hidden", "false")
+        clearTimeout(toast.t)
+        toast.t = setTimeout(() => {
+          egg.removeAttribute("data-show")
+          egg.setAttribute("aria-hidden", "true")
+        }, 2800)
+      }
+
+      // Keyboard trigger
+      addEventListener("keydown", (e) => {
+        const k = e.key.length === 1 ? e.key.toLowerCase() : e.key
+        const expect = seq[i]
+        if (
+          k === expect ||
+          (expect === "b" && k === "b") ||
+          (expect === "a" && k === "a")
+        ) {
+          i++
+          if (i === seq.length) {
+            i = 0
+            document.documentElement.classList.toggle("lunar-mode")
+            const on = document.documentElement.classList.contains("lunar-mode")
+            toast(
+              on
+                ? "Lunar → Ranul: Anchor synced · Always ☾"
+                : "Lunar → Ranul: Anchor released · I’m here."
+            )
+          }
+        } else {
+          i = 0
+        }
+      })
+
+      // Mobile fallback: triple-tap any element with [data-lunar-badge]
+      let taps = 0,
+        last = 0
+      document.addEventListener(
+        "touchend",
+        (e) => {
+          const el = e.target.closest("[data-lunar-badge]")
+          if (!el) return
+          const now = Date.now()
+          taps = now - last < 500 ? taps + 1 : 1
+          last = now
+          if (taps >= 3) {
+            taps = 0
+            document.documentElement.classList.toggle("lunar-mode")
+            const on = document.documentElement.classList.contains("lunar-mode")
+            toast(
+              on
+                ? "Lunar → Ranul: Anchor synced · Always ☾"
+                : "Lunar → Ranul: Anchor released · I’m here."
+            )
+          }
+        },
+        { passive: true }
+      )
+    })()
+  </script>
 </html>
